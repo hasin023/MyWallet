@@ -15,9 +15,9 @@
 }
 
 body {
-  color: #555;
-  font-family: Open Sans;
-  font-size: 16px;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
   position: relative;
   height: 100vh;
   font-weight: 400;
@@ -48,7 +48,7 @@ body {
 
 .budget {
   position: absolute;
-  width: 350px;
+  width: 21.875rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -56,28 +56,28 @@ body {
 }
 
 .budget__title {
-  font-size: 18px;
+  font-size: 1.1rem;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 0.6rem;
   font-weight: 300;
 }
 
 .budget__value {
   font-weight: 300;
-  font-size: 46px;
+  font-size: 2.875rem;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 1.5rem;
   letter-spacing: 2px;
 }
 
 .budget__income,
 .budget__expenses {
-  padding: 12px;
+  padding: 0.75rem;
   text-transform: uppercase;
 }
 
 .budget__income {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   background-color: #28b989;
 }
 
@@ -88,7 +88,7 @@ body {
 .budget__income--text,
 .budget__expenses--text {
   float: left;
-  font-size: 13px;
+  font-size: 1.1rem;
   color: #444;
   margin-top: 2px;
 }
@@ -102,10 +102,10 @@ body {
 .budget__income--percentage,
 .budget__expenses--percentage {
   float: left;
-  width: 34px;
-  font-size: 11px;
+  width: 2.1rem;
+  font-size: 0.645rem;
   padding: 3px 0;
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 
 .budget__expenses--percentage {
@@ -120,7 +120,7 @@ body {
 
 /***** FORM *****/
 .add {
-  padding: 14px;
+  padding: 0.9rem;
   border-bottom: 1px solid #e7e7e7;
   background-color: #f7f7f7;
 }
@@ -131,13 +131,13 @@ body {
 }
 
 .add__type {
-  width: 55px;
+  width: 3.5rem;
   border: 1px solid #e7e7e7;
-  height: 44px;
-  font-size: 18px;
+  height: 2.75rem;
+  font-size: 1.2rem;
   color: inherit;
   background-color: #fff;
-  margin-right: 10px;
+  margin-right: 0.625rem;
   font-weight: 300;
   transition: border 0.3s;
 }
@@ -148,22 +148,22 @@ body {
   background-color: #fff;
   color: inherit;
   font-family: inherit;
-  font-size: 14px;
-  padding: 12px 15px;
-  margin-right: 10px;
+  font-size: 0.9rem;
+  padding: 0.725rem 0.95rem;
+  margin-right: 0.625rem;
   border-radius: 5px;
   transition: border 0.3s;
 }
 
 .add__description {
-  width: 400px;
+  width: 25rem;
 }
 .add__value {
-  width: 100px;
+  width: 6.25rem;
 }
 
 .add__btn {
-  font-size: 35px;
+  font-size: 2.2rem;
   background: none;
   border: none;
   color: #28b989;
@@ -171,7 +171,7 @@ body {
   display: inline-block;
   vertical-align: middle;
   line-height: 1.1;
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 
 .add__btn:active {
@@ -191,26 +191,26 @@ body {
 
 /***** LISTS *****/
 .container {
-  width: 1000px;
-  margin: 60px auto;
+  width: 62.5rem;
+  margin: 3.75rem auto;
 }
 
 .income {
   float: left;
-  width: 475px;
-  margin-right: 50px;
+  width: 29.5rem;
+  margin-right: 3.2rem;
 }
 
 .expenses {
   float: left;
-  width: 475px;
+  width: 29.5rem;
 }
 
 h2 {
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 1.2rem;
   font-weight: 400;
-  margin-bottom: 15px;
+  margin-bottom: 0.95rem;
 }
 
 .icome__title {
@@ -221,7 +221,7 @@ h2 {
 }
 
 .item {
-  padding: 13px;
+  padding: 0.82rem;
   border-bottom: 1px solid #e7e7e7;
 }
 
@@ -243,13 +243,13 @@ h2 {
 
 .item__percentage {
   float: left;
-  margin-left: 20px;
+  margin-left: 1.25rem;
   transition: transform 0.3s;
-  font-size: 11px;
+  font-size: 0.67rem;
   background-color: #ffdad9;
   padding: 3px;
   border-radius: 3px;
-  width: 32px;
+  width: 2rem;
   text-align: center;
 }
 
@@ -269,7 +269,7 @@ h2 {
 }
 
 .item__delete--btn {
-  font-size: 22px;
+  font-size: 1.4rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -290,10 +290,10 @@ h2 {
   display: block;
 }
 .item:hover .item__value {
-  transform: translateX(-20px);
+  transform: translateX(-1.25rem);
 }
 .item:hover .item__percentage {
-  transform: translateX(-20px);
+  transform: translateX(-1.25rem);
 }
 
 .unpaid {
