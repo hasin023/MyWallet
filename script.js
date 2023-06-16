@@ -144,6 +144,19 @@ const budgetController = (function () {
 
 // UI Controller
 const uiController = (function () {
+  const formatNumber = function (num, type) {
+    let numSplit, int, dec;
+    num = Math.abs(num);
+    num = num.toFixed(2);
+    numSplit = num.split(".");
+    int = numSplit[0];
+    if (int.length > 3) {
+      int = int.substr(0, int.length - 3) + "," + int.substr(int.length - 3, 3);
+    }
+    dec = numSplit[1];
+    return (type === "exp" ? "-" : "+") + " " + int + "." + dec;
+  };
+
   return {
     getInput: function () {
       return {
@@ -161,7 +174,7 @@ const uiController = (function () {
           <div class="item clearfix" id="inc-${obj.id}">
           <div class="item__description">${obj.description}</div>
           <div class="right clearfix">
-          <div class="item__value">${obj.value}</div>
+          <div class="item__value">${formatNumber(obj.value, type)}</div>
           <div class="item__delete">
           <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
           </div>
@@ -173,7 +186,7 @@ const uiController = (function () {
           <div class="item clearfix" id="exp-${obj.id}">
           <div class="item__description">${obj.description}</div>
           <div class="right clearfix">
-          <div class="item__value">${obj.value}</div>
+          <div class="item__value">${formatNumber(obj.value, type)}</div>
           <div class="item__percentage">21%</div>
           <div class="item__delete">
           <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
@@ -204,9 +217,17 @@ const uiController = (function () {
     },
 
     displayBudget: function (obj) {
-      budgetValue.textContent = obj.budget;
-      budgetIncomeValue.textContent = obj.totalIncome;
-      budgetExpensesValue.textContent = obj.totalExpenses;
+      let type;
+
+      if (obj.budget > 0) {
+        type = "inc";
+      } else {
+        type = "exp";
+      }
+
+      budgetValue.textContent = formatNumber(obj.budget, type);
+      budgetIncomeValue.textContent = formatNumber(obj.totalIncome, "inc");
+      budgetExpensesValue.textContent = formatNumber(obj.totalExpenses, "exp");
 
       if (obj.percentage > 0) {
         budgetExpensesPercentage.textContent = obj.percentage + "%";
