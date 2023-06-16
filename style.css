@@ -311,3 +311,22 @@ h2 {
 .unpaid:hover .item__description {
   font-weight: 900;
 }
+
+.copyright {
+  margin-top: 15rem;
+  padding-bottom: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #555;
+}
+
+.github-link:link,
+.github-link:visited {
+  color: #555;
+  transition: all 0.2s;
+}
+
+.github-link:hover,
+.github-link:active {
+  color: #28b989;
+}
