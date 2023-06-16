@@ -14,6 +14,7 @@ const budgetExpensesPercentage = document.querySelector(
   ".budget__expenses--percentage"
 );
 const container = document.querySelector(".container");
+const budgetMonth = document.querySelector(".budget__title--month");
 ///////////////////////////////////
 
 // Class
@@ -216,6 +217,27 @@ const uiController = (function () {
       descriptionInput.focus();
     },
 
+    displayMonth: function () {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth();
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "Auguest",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      budgetMonth.textContent = months[month] + " " + year;
+    },
+
     displayBudget: function (obj) {
       let type;
 
@@ -345,6 +367,7 @@ const controller = (function (budgetCtrl, uiCtrl) {
   return {
     init: function () {
       console.log("Application has started");
+      uiCtrl.displayMonth();
       setupEventListeners();
     },
   };
