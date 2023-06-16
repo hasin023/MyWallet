@@ -173,6 +173,7 @@ body {
   vertical-align: middle;
   line-height: 1.1;
   margin-left: 0.625rem;
+  transition: transform 0.2s;
 }
 
 .add__btn:active {
@@ -278,6 +279,7 @@ h2 {
   vertical-align: middle;
   line-height: 1;
   display: none;
+  transition: transform 0.2s;
 }
 
 .item__delete--btn:focus {
