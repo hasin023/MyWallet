@@ -23,6 +23,19 @@ class Expense {
     this.id = id;
     this.description = description;
     this.value = value;
+    this.percentage = -1;
+  }
+
+  calcPercentage(totalIncome) {
+    if (totalIncome > 0) {
+      this.percentage = Math.round((this.value / totalIncome) * 100);
+    } else {
+      this.percentage = -1;
+    }
+  }
+
+  getPercentage() {
+    return this.percentage;
   }
 }
 
@@ -101,6 +114,21 @@ const budgetController = (function () {
       } else {
         data.percentage = -1;
       }
+    },
+
+    calculatePercentages: function () {
+      // Calculate percentages
+      data.allItems.exp.forEach(function (current) {
+        current.calcPercentage(data.totals.inc);
+      });
+    },
+
+    getPercentages: function () {
+      // Read percentages from the budget controller
+      const allPerc = data.allItems.exp.map(function (current) {
+        return current.getPercentage();
+      });
+      return allPerc;
     },
 
     getBudget: function () {
@@ -186,6 +214,24 @@ const uiController = (function () {
         budgetExpensesPercentage.textContent = "---";
       }
     },
+
+    displayPercentages: function (percentages) {
+      const fields = document.querySelectorAll(".item__percentage");
+
+      const nodeListForEach = function (list, callback) {
+        for (let i = 0; i < list.length; i++) {
+          callback(list[i], i);
+        }
+      };
+
+      nodeListForEach(fields, function (current, index) {
+        if (percentages[index] > 0) {
+          current.textContent = percentages[index] + "%";
+        } else {
+          current.textContent = "---";
+        }
+      });
+    },
   };
 })();
 
@@ -216,8 +262,13 @@ const controller = (function (budgetCtrl, uiCtrl) {
 
   const updatePercentages = function () {
     // Calculate percentages
+    budgetCtrl.calculatePercentages();
+
     // Read percentages from the budget controller
+    const percentages = budgetCtrl.getPercentages();
+
     // Update the UI with the new percentages
+    uiCtrl.displayPercentages(percentages);
   };
 
   const ctrlAddItem = function () {
