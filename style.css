@@ -2,6 +2,19 @@
 *** GENERAL
 **********************************************/
 
+:root {
+  --income-color: #28b989;
+  --expense-color: #ff5049;
+  --percentage-color: #ffdad9;
+
+  --border-color: #e7e7e7;
+
+  --copyright-text-color: #555;
+
+  --background-color--1: #fff;
+  --background-color--2: #f7f7f7;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -27,10 +40,10 @@ body {
   float: right;
 }
 .red {
-  color: #ff5049 !important;
+  color: var(--expense-color) !important;
 }
 .red-focus:focus {
-  border: 1px solid #ff5049 !important;
+  border: 1px solid var(--expense-color) !important;
 }
 
 /**********************************************
@@ -52,7 +65,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff;
+  color: var(--background-color--1);
 }
 
 .budget__title {
@@ -78,11 +91,11 @@ body {
 
 .budget__income {
   margin-bottom: 0.625rem;
-  background-color: #28b989;
+  background-color: var(--income-color);
 }
 
 .budget__expenses {
-  background-color: #ff5049;
+  background-color: var(--expense-color);
 }
 
 .budget__income--text,
@@ -121,8 +134,8 @@ body {
 /***** FORM *****/
 .add {
   padding: 0.9rem;
-  border-bottom: 1px solid #e7e7e7;
-  background-color: #f7f7f7;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--background-color--2);
 }
 
 .add__container {
@@ -132,11 +145,11 @@ body {
 
 .add__type {
   width: 3.5rem;
-  border: 1px solid #e7e7e7;
+  border: 1px solid var(--border-color);
   height: 2.75rem;
   font-size: 1.2rem;
   color: inherit;
-  background-color: #fff;
+  background-color: var(--background-color--1);
   margin-right: 0.625rem;
   border-radius: 5px;
   font-weight: 300;
@@ -145,8 +158,8 @@ body {
 
 .add__description,
 .add__value {
-  border: 1px solid #e7e7e7;
-  background-color: #fff;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color--1);
   color: inherit;
   font-family: inherit;
   font-size: 0.9rem;
@@ -167,7 +180,7 @@ body {
   font-size: 2.2rem;
   background: none;
   border: none;
-  color: #28b989;
+  color: var(--income-color);
   cursor: pointer;
   display: inline-block;
   vertical-align: middle;
@@ -184,7 +197,7 @@ body {
 .add__description:focus,
 .add__value:focus {
   outline: none;
-  border: 1px solid #28b989;
+  border: 1px solid var(--income-color);
 }
 
 .add__btn:focus {
@@ -216,22 +229,22 @@ h2 {
 }
 
 .icome__title {
-  color: #28b989;
+  color: var(--income-color);
 }
 .expenses__title {
-  color: #ff5049;
+  color: var(--expense-color);
 }
 
 .item {
   padding: 0.82rem;
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .item:first-child {
-  border-top: 1px solid #e7e7e7;
+  border-top: 1px solid var(--border-color);
 }
 .item:nth-child(even) {
-  background-color: #f7f7f7;
+  background-color: var(--background-color--2);
 }
 
 .item__description {
@@ -248,7 +261,7 @@ h2 {
   margin-left: 1.25rem;
   transition: transform 0.3s;
   font-size: 0.67rem;
-  background-color: #ffdad9;
+  background-color: var(--percentage-color);
   padding: 3px;
   border-radius: 3px;
   width: 2rem;
@@ -257,13 +270,13 @@ h2 {
 
 .income .item__value,
 .income .item__delete--btn {
-  color: #28b989;
+  color: var(--income-color);
 }
 
 .expenses .item__value,
 .expenses .item__percentage,
 .expenses .item__delete--btn {
-  color: #ff5049;
+  color: var(--expense-color);
 }
 
 .item__delete {
@@ -300,9 +313,9 @@ h2 {
 }
 
 .unpaid {
-  background-color: #ffdad9 !important;
+  background-color: var(--percentage-color) !important;
   cursor: pointer;
-  color: #ff5049;
+  color: var(--expense-color);
 }
 
 .unpaid .item__percentage {
@@ -317,16 +330,16 @@ h2 {
   padding-bottom: 1rem;
   font-size: 0.9rem;
   text-align: center;
-  color: #555;
+  color: var(--copyright-text-color);
 }
 
 .github-link:link,
 .github-link:visited {
-  color: #555;
+  color: var(--copyright-text-color);
   transition: all 0.2s;
 }
 
 .github-link:hover,
 .github-link:active {
-  color: #28b989;
+  color: var(--income-color);
 }
