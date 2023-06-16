@@ -238,6 +238,16 @@ const uiController = (function () {
       budgetMonth.textContent = months[month] + " " + year;
     },
 
+    changedType: function () {
+      const fields = document.querySelectorAll(
+        ".add__type, .add__description, .add__value"
+      );
+      fields.forEach(function (current) {
+        current.classList.toggle("red-focus");
+      });
+      AddBtn.classList.toggle("red");
+    },
+
     displayBudget: function (obj) {
       let type;
 
@@ -283,13 +293,20 @@ const controller = (function (budgetCtrl, uiCtrl) {
   const setupEventListeners = function () {
     AddBtn.addEventListener("click", ctrlAddItem);
 
-    document.addEventListener("keypress", function (e) {
+    valueInput.addEventListener("keypress", function (e) {
       if (e.key === "Enter") {
         ctrlAddItem();
       }
     });
 
+    descriptionInput.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        valueInput.focus();
+      }
+    });
+
     container.addEventListener("click", ctrlDeleteItem);
+    typeInput.addEventListener("change", uiCtrl.changedType);
   };
 
   const updateBudget = function () {
