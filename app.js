@@ -7,6 +7,13 @@ const valueInput = document.querySelector(".add__value");
 const AddBtn = document.querySelector(".add__btn");
 const incomeContainer = document.querySelector(".income__list");
 const expensesContainer = document.querySelector(".expenses__list");
+const budgetValue = document.querySelector(".budget__value");
+const budgetIncomeValue = document.querySelector(".budget__income--value");
+const budgetExpensesValue = document.querySelector(".budget__expenses--value");
+const budgetExpensesPercentage = document.querySelector(
+  ".budget__expenses--percentage"
+);
+const container = document.querySelector(".container");
 ///////////////////////////////////
 
 // Class
@@ -151,6 +158,18 @@ const uiController = (function () {
       valueInput.value = "";
       descriptionInput.focus();
     },
+
+    displayBudget: function (obj) {
+      budgetValue.textContent = obj.budget;
+      budgetIncomeValue.textContent = obj.totalIncome;
+      budgetExpensesValue.textContent = obj.totalExpenses;
+
+      if (obj.percentage > 0) {
+        budgetExpensesPercentage.textContent = obj.percentage + "%";
+      } else {
+        budgetExpensesPercentage.textContent = "---";
+      }
+    },
   };
 })();
 
@@ -164,6 +183,8 @@ const controller = (function (budgetCtrl, uiCtrl) {
         ctrlAddItem();
       }
     });
+
+    container.addEventListener("click", ctrlDeleteItem);
   };
 
   const updateBudget = function () {
@@ -172,7 +193,7 @@ const controller = (function (budgetCtrl, uiCtrl) {
     // Return the budget
     const budget = budgetController.getBudget();
     // Display the budget on the UI
-    console.log(budget);
+    uiCtrl.displayBudget(budget);
   };
 
   const ctrlAddItem = function () {
